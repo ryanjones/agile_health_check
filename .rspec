@@ -1,0 +1,3 @@
+--color
+--require rails_helper
+--fail-fast=3
