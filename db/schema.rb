@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630024400) do
+ActiveRecord::Schema.define(version: 20170702013730) do
+
+# Could not dump table "agile_teams" because of following StandardError
+#   Unknown type 'uuid' for column 'id'
+
+# Could not dump table "score_cards" because of following StandardError
+#   Unknown type 'uuid' for column 'id'
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

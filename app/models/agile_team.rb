@@ -1,0 +1,2 @@
+class AgileTeam < ApplicationRecord
+end
