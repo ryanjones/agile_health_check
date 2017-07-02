@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170702014429) do
+ActiveRecord::Schema.define(version: 20170702042149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,23 @@ ActiveRecord::Schema.define(version: 20170702014429) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "text"
+    t.integer "kind", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "score_card_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "score_card_id"
+    t.uuid "question_id"
+    t.integer "score", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_score_card_answers_on_question_id"
+    t.index ["score_card_id"], name: "index_score_card_answers_on_score_card_id"
   end
 
   create_table "score_cards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -46,5 +63,7 @@ ActiveRecord::Schema.define(version: 20170702014429) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "score_card_answers", "questions"
+  add_foreign_key "score_card_answers", "score_cards"
   add_foreign_key "score_cards", "agile_teams"
 end
