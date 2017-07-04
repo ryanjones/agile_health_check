@@ -35,22 +35,22 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'pg'
+gem 'simple_form'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'headless'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'pry'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'better_errors', git: 'https://github.com/charliesome/better_errors.git', branch: 'master'
+  gem "binding_of_caller"
+
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

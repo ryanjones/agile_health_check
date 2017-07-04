@@ -1,0 +1,26 @@
+<div class="row">
+
+  <h2>Agile Team - <%= @agile_team.name %></h2>
+
+  <%= simple_form_for @score_card do |f| %>
+    <%= f.hidden_field :agile_team_id, value: @agile_team.id %>
+    <%= f.button :submit, 'Create Score Card', class: "btn btn-default btn-sm" %>
+  <% end %>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Health Check</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @score_cards.each do |sc| %>
+      <tr>
+        <td><%= link_to 'View', score_card_path(sc) %></td>
+        <td><%= sc.created_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -6,3 +6,20 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+teams = ['Green', 'Red', 'Blue']
+
+teams.each do |t|
+  AgileTeam.find_or_create_by!(name: "#{t} Team")
+end
+
+team_health_check_questions = ['Question 1', 'Question 2', 'Question 3', 'Question 4']
+team_health_check_questions.each do |q|
+  Question.find_or_create_by!(text: q, kind: Question.kinds[:team_health_check] )
+end
+
+application_health_check_questions = ['Question 100']
+application_health_check_questions.each do |q|
+  Question.find_or_create_by!(text: q, kind: Question.kinds[:team_health_check] )
+end
