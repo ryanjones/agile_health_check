@@ -1,0 +1,12 @@
+<div class="row">
+  <h2>Health Check</h2>
+  
+  <%= simple_form_for @score_card do |f| %>
+    
+      <%= f.simple_fields_for :score_card_answers do |scaf| %>
+        <%= scaf.input :question, input_html: { value: scaf.object.question.text} %>
+        <%= scaf.input :score, collection: ["Green","Yellow","Red"]  %>
+      <% end %>
+      <%= f.button :submit, 'Update Health Check', class: "btn btn-default btn-md" %>
+  <% end %>
+</div>

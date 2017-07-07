@@ -3,6 +3,6 @@ class DashboardsController < ApplicationController
 
   def index
     @agile_teams = AgileTeam.all.includes(:score_cards)
-    @score_cards = ScoreCard.includes(:agile_team).last(10)
+    @score_cards = ScoreCard.includes(:agile_team).order(created_at: :desc).first(10)
   end
 end

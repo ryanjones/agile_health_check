@@ -1,1 +1,32 @@
-Display score card questions + ability to answer here
+<div class="row">
+  <h2>Health Check</h2>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Question</th>
+      <th>Answer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @score_card_answers.each do |score_card_answer| %>
+      <tr>
+        <td><%= score_card_answer.question.text %></td>
+        <% if score_card_answer.score == "green" %>
+          <td class="success"></td>
+        <% elsif score_card_answer.score == "yellow" %>
+          <td class="warning"></td>
+        <% elsif score_card_answer.score == "red" %>
+          <td class="danger"></td>
+      <% end %>
+       </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="row">
+
+  <%= link_to 'Edit', edit_score_card_path(@score_card) %>
+  <%= link_to 'Destroy', @score_card, method: :delete, data: { confirm: 'Are you sure?' } %>
+  
+</div>
