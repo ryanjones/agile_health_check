@@ -3,5 +3,4 @@ class ScoreCard < ApplicationRecord
   has_many :score_card_answers, dependent: :destroy
 
   accepts_nested_attributes_for :score_card_answers
-  
 end

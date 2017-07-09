@@ -21,8 +21,7 @@ class ScoreCardsController < ApplicationController
   end
 
   def update
-    require "pry"; binding.pry
-    if @score_card.update(test_params)
+    if @score_card.update(score_card_params)
       redirect_to @score_card, notice: 'Health check was successfully updated.'
     else
       render :edit
@@ -37,7 +36,7 @@ class ScoreCardsController < ApplicationController
   private
   
   def score_card_params
-    params.require(:score_card).permit(:agile_team_id)
+    params.require(:score_card).permit(:agile_team_id, score_card_answers_attributes: [:id, :score] )
   end
 
   def set_score_card

@@ -5,7 +5,7 @@
     
       <%= f.simple_fields_for :score_card_answers do |scaf| %>
         <%= scaf.input :question, input_html: { value: scaf.object.question.text} %>
-        <%= scaf.input :score, collection: ["Green","Yellow","Red"]  %>
+        <%= scaf.input :score, collection: ScoreCardAnswer.scores.collect {|key,_v| key }  %>
       <% end %>
       <%= f.button :submit, 'Update Health Check', class: "btn btn-default btn-md" %>
   <% end %>

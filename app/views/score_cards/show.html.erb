@@ -12,11 +12,11 @@
     <% @score_card_answers.each do |score_card_answer| %>
       <tr>
         <td><%= score_card_answer.question.text %></td>
-        <% if score_card_answer.score == "green" %>
+        <% if score_card_answer.score == "Green" %>
           <td class="success"></td>
-        <% elsif score_card_answer.score == "yellow" %>
+        <% elsif score_card_answer.score == "Yellow" %>
           <td class="warning"></td>
-        <% elsif score_card_answer.score == "red" %>
+        <% elsif score_card_answer.score == "Red" %>
           <td class="danger"></td>
       <% end %>
        </tr>
