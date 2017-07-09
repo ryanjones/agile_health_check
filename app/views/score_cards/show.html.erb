@@ -1,6 +1,11 @@
 <div class="row">
-  <h2>Health Check</h2>
+  <h2>Health Check for <%= @score_card.agile_team.name %></h2>
+  <br>
+  <%= link_to 'Update Questions', edit_score_card_path(@score_card), class: 'btn btn-default' %>
+  <%= link_to 'Destroy Health Check', @score_card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+</div>
 
+<div class="row">
   <table class="table table-hover">
     <thead>
     <tr>
@@ -23,10 +28,4 @@
     <% end %>
     </tbody>
   </table>
-</div>
-<div class="row">
-
-  <%= link_to 'Edit', edit_score_card_path(@score_card) %>
-  <%= link_to 'Destroy', @score_card, method: :delete, data: { confirm: 'Are you sure?' } %>
-  
 </div>

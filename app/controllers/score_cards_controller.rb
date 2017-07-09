@@ -10,7 +10,7 @@ class ScoreCardsController < ApplicationController
       ScoreCardAnswer.create!(score_card: score_card, question: q)
     end
     
-    redirect_to score_card_path(score_card), notice: 'Health check created successfully.'
+    redirect_to edit_score_card_path(score_card), notice: 'Health check created successfully.'
   end
   
   def show
