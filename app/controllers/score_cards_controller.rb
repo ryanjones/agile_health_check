@@ -4,10 +4,19 @@ class ScoreCardsController < ApplicationController
 
 
   def create
-    score_card = ScoreCard.create!(agile_team: AgileTeam.find(score_card_params[:agile_team_id]))
+    agile_team = AgileTeam.find(score_card_params[:agile_team_id])
+    score_card = ScoreCard.create!(agile_team: agile_team)
     
-    Question.all.each do |q|
-      ScoreCardAnswer.create!(score_card: score_card, question: q)
+    if agile_team.kind == "agile_team"
+      Question.where.not(kind: Question.kinds[:product_owner_health_check]).all.each do |q|
+        ScoreCardAnswer.create!(score_card: score_card, question: q)
+      end
+    end
+
+    if agile_team.kind == "product_team"
+      Question.where(kind: Question.kinds[:product_owner_health_check]).all.each do |q|
+        ScoreCardAnswer.create!(score_card: score_card, question: q)
+      end
     end
     
     redirect_to edit_score_card_path(score_card), notice: 'Health check created successfully.'
