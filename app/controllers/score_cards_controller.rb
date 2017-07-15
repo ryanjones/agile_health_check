@@ -1,8 +1,7 @@
 class ScoreCardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_score_card, only: [:show, :edit, :update, :destroy]
-
-
+  
   def create
     agile_team = AgileTeam.find(score_card_params[:agile_team_id])
     score_card = ScoreCard.create!(agile_team: agile_team)

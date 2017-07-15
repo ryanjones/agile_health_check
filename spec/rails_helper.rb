@@ -10,6 +10,7 @@ require 'capybara/rails'
 require 'capybara/webkit'
 require 'headless'
 require 'database_cleaner'
+require 'support/factory_girl'
 include Warden::Test::Helpers
 
 Capybara.javascript_driver = :webkit
@@ -19,6 +20,7 @@ Capybara.default_driver = :webkit
 # end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
 
 
 # Add additional requires below this line. Rails is not loaded until this point!
