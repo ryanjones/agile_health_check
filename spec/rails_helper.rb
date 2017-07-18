@@ -11,7 +11,6 @@ require 'capybara/webkit'
 require 'headless'
 require 'database_cleaner'
 require 'support/factory_girl'
-include Warden::Test::Helpers
 
 Capybara.javascript_driver = :webkit
 Capybara.default_driver = :webkit
@@ -45,6 +44,7 @@ Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include RequestSpecHelper
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false

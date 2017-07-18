@@ -27,6 +27,8 @@
   </table>
 
   <br>
-  <%= link_to 'Update Questions', edit_score_card_path(@score_card), class: 'btn btn-default' %>
-  <%= link_to 'Destroy Health Check', @score_card, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to 'Edit answers', edit_score_card_path(@score_card) %>
+  <br>
+  <br>
+  <%= link_to 'Destroy health check', @score_card, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>

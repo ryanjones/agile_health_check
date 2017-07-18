@@ -5,11 +5,12 @@
 
 <div class="row">
   <%= simple_form_for @score_card do |f| %>
-    
-      <%= f.simple_fields_for :score_card_answers do |scaf| %>
-        <%= scaf.object.question.title %>
-        <%= scaf.input :score, collection: ScoreCardAnswer.scores.collect {|key,_v| key }, as: :radio_buttons, label: false  %>
-      <% end %>
-      <%= f.button :submit, 'Update Health Check', class: "btn btn-default btn-md" %>
+        <%= f.simple_fields_for :score_card_answers do |scaf| %>
+        <div class=<%= "question_#{scaf.index + 1}" %>>
+          <%= scaf.object.question.title %>
+          <%= scaf.input :score, collection: ScoreCardAnswer.scores.collect {|key,_v| key }, as: :radio_buttons, label: false %>
+        </div>
+        <% end %>
+      <%= f.button :submit, 'Update answers', class: "btn btn-default btn-md" %>
   <% end %>
 </div>
