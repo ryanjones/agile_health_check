@@ -1,0 +1,17 @@
+sudo: false
+cache: bundler
+rvm:
+  - "2.3.0"
+addons:
+  postgresql: "9.3"
+services:
+  - redis-server
+  - postgresql
+bundler_args: "--binstubs --without production"
+before_install:
+  - "export DISPLAY=:99.0"
+before_script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - 'sh -e /etc/init.d/xvfb start'
+  - psql -c 'create database travis_ci_test;' -U postgres
