@@ -1,7 +1,7 @@
 namespace :demo do
   desc "seed the demo site"
   task seed: :environment do
-    User.create!(email: "agile_coach@example.com", password: 'waffles', password_confirmation: 'waffles')
+    User.create!(email: "agile_coach@example.com", password: 'waffles', password_confirmation: 'waffles') unless User.exists?(email: "agile_coach@example.com")
     
     AgileTeam.find_or_create_by!(name: 'Agile Team 1', kind: :agile_team)
     AgileTeam.find_or_create_by!(name: 'Product Team', kind: :product_team)
@@ -56,6 +56,6 @@ namespace :demo do
       Question.find_or_create_by!(title: q[:title], kind: q[:type] )
     end
 
-
+    puts 'Database seeded'
   end
 end
