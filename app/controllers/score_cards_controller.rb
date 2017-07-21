@@ -22,10 +22,15 @@ class ScoreCardsController < ApplicationController
   end
   
   def show
-    @score_card_answers = ScoreCardAnswer.includes(:question).where(score_card: @score_card).all
+    @score_card_answers = ScoreCardAnswer.includes(:question).order(created_at: :asc).where(score_card: @score_card).all
+
+    set_breadcrumbs
+    add_breadcrumb "Score card - #{@score_card.id}", score_card_path(@score_card)
   end
   
   def edit
+    set_breadcrumbs
+    add_breadcrumb "Score card - #{@score_card.id}", edit_score_card_path(@score_card)
   end
 
   def update
@@ -50,7 +55,12 @@ class ScoreCardsController < ApplicationController
   def set_score_card
     @score_card = ScoreCard.find(params[:id])
   end
-
+  
+  def set_breadcrumbs
+    add_breadcrumb "Home", :root_path
+    agile_team = @score_card.agile_team
+    add_breadcrumb "#{agile_team.name}", agile_team_path(agile_team)
+  end
 end
 
 
