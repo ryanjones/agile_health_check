@@ -63,6 +63,7 @@ GEM
       sass (>= 3.3.4)
     bootswatch-rails (3.3.5)
       railties (>= 3.1)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.3)
     capybara (2.14.4)
       addressable
@@ -240,6 +241,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 3.3.6)
   bootswatch-rails
+  breadcrumbs_on_rails
   capybara
   capybara-webkit
   coffee-rails (~> 4.2)

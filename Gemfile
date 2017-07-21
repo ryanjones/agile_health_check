@@ -35,6 +35,7 @@ gem 'devise-bootstrap-views'
 gem 'pg'
 gem 'simple_form'
 gem "audited", "~> 4.5"
+gem "breadcrumbs_on_rails"
 
 group :development, :test do
   gem 'rspec-rails'

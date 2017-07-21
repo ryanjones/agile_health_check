@@ -39,9 +39,13 @@
         </div>
       </nav>
     </div>
-
+    
     <%= flash_messages %>
 
+    <div class="row">
+      <%= render_breadcrumbs separator: ' / ' %>
+    </div>
+    
     <%= yield %>
 
   </div>
