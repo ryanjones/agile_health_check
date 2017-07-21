@@ -4,4 +4,6 @@ class ScoreCard < ApplicationRecord
   has_many :questions, through: :score_card_answers
   
   accepts_nested_attributes_for :score_card_answers
+
+  audited
 end
