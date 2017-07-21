@@ -5,7 +5,7 @@
 
 <div class="row">
   <%= simple_form_for @score_card do |f| %>
-        <%= f.simple_fields_for :score_card_answers do |scaf| %>
+        <%= f.simple_fields_for :score_card_answers, @score_card.score_card_answers.sort_by(&:created_at) do |scaf| %>
         <div class=<%= "question_#{scaf.index + 1}" %>>
           <%= scaf.object.question.title %>
           <%= scaf.input :score, collection: ScoreCardAnswer.scores.collect {|key,_v| key }, as: :radio_buttons, label: false %>
