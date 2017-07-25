@@ -1,43 +1,47 @@
 <div class="row">
-  <h2>Teams</h2>
-
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Team Name</th>
-        <th>Last Health Check</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @agile_teams.each do |ag| %>
-      <tr>
-        <td><%= link_to ag.name, agile_team_path(ag) %></td>
-        <td><%= ag.score_cards.last.try(:created_at) || "N/A" %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <div class="col-md-12">
+    <h2>Agile Teams</h2>
+  
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Team Name</th>
+          <th>Last Health Check</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @agile_teams.each do |ag| %>
+        <tr>
+          <td><%= link_to ag.name, agile_team_path(ag) %></td>
+          <td><%= ag.score_cards.last.try(:created_at) || "N/A" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="row">
-  <h2>Most Recent Health Checks</h2>
-  
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>Team Name</th>
-      <th>Health Check</th>
-      <th>Created On</th>
-    </tr>
-    </thead>
-    <tbody>
-      <% @score_cards.each do |sc| %>
+  <div class="col-md-12">
+    <h2>Most Recent Health Checks</h2>
+    
+    <table class="table table-hover table-striped">
+      <thead>
       <tr>
-        <td><%= sc.agile_team.name %></td>
-        <td><%= link_to 'View', score_card_path(sc) %></td>
-        <td><%= sc.created_at %></td>
+        <th>Team Name</th>
+        <th>Health Check</th>
+        <th>Created On</th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @score_cards.each do |sc| %>
+        <tr>
+          <td><%= sc.agile_team.name %></td>
+          <td><%= link_to 'View', score_card_path(sc) %></td>
+          <td><%= sc.created_at %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

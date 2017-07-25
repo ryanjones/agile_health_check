@@ -3,7 +3,9 @@ class AgileTeamsController < ApplicationController
 
   def show
     @agile_team = AgileTeam.find(params[:id])
-    @score_cards = ScoreCard.where(agile_team: @agile_team).order(created_at: :desc)
+    @score_cards = AgileTeamDecorator.decorate_collection(
+      ScoreCard.where(agile_team: @agile_team).includes(:score_card_answers).includes(:questions).order(created_at: :desc)
+    )
     @score_card = ScoreCard.new
     
     set_breadcrumbs

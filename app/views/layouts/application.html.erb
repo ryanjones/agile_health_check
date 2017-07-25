@@ -45,7 +45,9 @@
     <%= flash_messages %>
 
     <div class="row">
-      <%= render_breadcrumbs separator: ' / ' %>
+      <div class="col-md-12">
+        <%= render_breadcrumbs separator: ' / ' %>
+      </div>
     </div>
     
     <%= yield %>

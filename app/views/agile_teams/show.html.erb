@@ -1,26 +1,38 @@
 <div class="row">
-    <h2>Agile Team - <%= @agile_team.name %></h2>
+  <div class="col-md-12">
+    <h2><%= @agile_team.name %></h2>
     <br>
     <%= simple_form_for @score_card do |f| %>
       <%= f.hidden_field :agile_team_id, value: @agile_team.id %>
       <%= f.button :submit, 'Create a new health check', class: "btn btn-default btn-md" %>
     <% end %>
+  </div>
 </div>
 
 
-<div class="row score_card_listing">
-  <table class="table table-hover">
+<div class="row score_card_listing ">
+  <div class="col-md-8">
+  
+  <table class="table table-hover table-striped">
     <thead>
     <tr>
-      <th>Health Check Listing</th>
+      <th>Team Health (Goal 100%)</th>
+      <th>Application Checks (Goal 100%)</th>
+      <th>Trend</th>
+      <th>Health Check</th>
     </tr>
     </thead>
     <tbody>
     <% @score_cards.each do |sc| %>
       <tr>
-        <td><%= link_to sc.created_at, score_card_path(sc) %></td>
+        <td><%= "#{sc.health_check_average}" %></td>
+        <td><%= "#{sc.application_check_average}" %></td>
+        <td><%= "\u25B2" "\u25BC" "\u2015" %></td>
+        <td><%= link_to 'View', score_card_path(sc) %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  
+  </div>
 </div>
