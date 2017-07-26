@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'dashboards/index'
 
-  devise_for :users
+  devise_for :users, skip: [:registrations]
   get 'pages/welcome'
   get 'dashboard', to: 'dashboards#index'
   resources :agile_teams, only: [:show]
