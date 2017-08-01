@@ -29,4 +29,32 @@ class AgileTeamDecorator < Draper::Decorator
     
     "#{((score.to_f / size) * 100 ).ceil}%" unless size == 0
   end
+  
+  def trend_health(next_score)
+    return if next_score.blank?
+    if next_score.health_check_average.to_d > self.health_check_average.to_d
+      "\u25BC"
+    elsif next_score.health_check_average.to_d == self.health_check_average.to_d
+      "\u2015"
+    elsif next_score.health_check_average.to_d < self.health_check_average.to_d
+      "\u25B2"
+    end
+  end
+  
+  def trend_app(next_score)
+    return if next_score.blank?
+    if next_score.application_check_average.to_d > self.application_check_average.to_d
+      "\u25BC"
+    elsif next_score.application_check_average.to_d == self.application_check_average.to_d
+      "\u2015"
+    elsif next_score.application_check_average.to_d < self.application_check_average.to_d
+      "\u25B2"
+    end
+  end
+  
+  def color(unicode)
+    return 'green-text' if unicode == "\u25B2"
+    return 'yellow-text' if unicode == "\u2015"
+    return 'red-text' if unicode == "\u25BC"
+  end
 end

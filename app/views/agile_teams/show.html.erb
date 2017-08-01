@@ -18,16 +18,15 @@
     <tr>
       <th>Team Health (Goal 100%)</th>
       <th>Application Checks (Goal 100%)</th>
-      <th>Trend</th>
       <th>Health Check</th>
     </tr>
     </thead>
     <tbody>
-    <% @score_cards.each do |sc| %>
+    <% @score_cards.each_with_index do |sc, index| %>
+      <% next_score = @score_cards[index + 1] %>
       <tr>
-        <td><%= "#{sc.health_check_average}" %></td>
-        <td><%= "#{sc.application_check_average}" %></td>
-        <td><%= "\u25B2" "\u25BC" "\u2015" %></td>
+        <td class=<%="#{sc.color(sc.trend_health(next_score))}"%>><%= "#{sc.health_check_average}" "#{sc.trend_health(next_score)}" %></span></td>
+        <td class=<%="#{sc.color(sc.trend_app(next_score))}"%>><%= "#{sc.application_check_average}" "#{sc.trend_app(next_score)}" %></td>
         <td><%= link_to 'View', score_card_path(sc) %></td>
       </tr>
     <% end %>
