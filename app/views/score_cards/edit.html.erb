@@ -23,7 +23,7 @@
   
         <div class=<%= "question_#{scaf.index + 1}" %>>
           <%= scaf.object.question.title %>
-          <%= scaf.input :score, collection: ScoreCardAnswer.scores.sort_by{|k,v| v}.reverse.to_h.collect {|key,_v| key },
+          <%= scaf.input :score, collection: ScoreCardAnswer.scores.sort_by{|k,v| v}.reverse.to_h.except("Yellow").collect {|key,_v| key },
                          as: :radio_buttons, label: false %>
         </div>
       <% end %>
