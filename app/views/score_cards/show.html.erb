@@ -6,12 +6,12 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th>Question</th>
-      <th>Answer</th>
+      <th>Health Check Questions</th>
+      <th>Health Level</th>
     </tr>
     </thead>
     <tbody>
-    <% @score_card_answers.each do |score_card_answer| %>
+    <% @score_card_answers.select { |sca| sca.question.kind == "team_health_check" || "product_owner_health_check" }.each do |score_card_answer| %>
       <tr>
         <td><%= score_card_answer.question.title %></td>
         <% if score_card_answer.score == "Green" %>
@@ -22,6 +22,28 @@
           <td class="danger"></td>
       <% end %>
        </tr>
+    <% end %>
+
+    <% if @score_card_answers.select { |sca| sca.question.kind == "application_health_check" }.count > 0 %>
+      <tr><td></td><td></td></tr>
+      <tr>
+        <th>Application Check Questions</th>
+        <th></th>
+      </tr>
+
+
+      <% @score_card_answers.select { |sca| sca.question.kind == "application_health_check" }.each do |score_card_answer| %>
+        <tr>
+          <td><%= score_card_answer.question.title %></td>
+          <% if score_card_answer.score == "Green" %>
+            <td class="success"></td>
+          <% elsif score_card_answer.score == "Yellow" %>
+            <td class="warning"></td>
+          <% elsif score_card_answer.score == "Red" %>
+            <td class="danger"></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
     </tbody>
   </table>
