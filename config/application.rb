@@ -18,5 +18,7 @@ module AgileHealthCheck
     config.generators do |g|
       g.orm :active_record, primary_key_type: :uuid
     end
+
+    config.time_zone = 'Mountain Time (US & Canada)'
   end
 end

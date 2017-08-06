@@ -19,6 +19,7 @@
       <th>Team Health (Goal 100%)</th>
       <th>Application Checks (Goal 100%)</th>
       <th>Health Check</th>
+      <th>Created On</th>
     </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
         <td class=<%="#{sc.color(sc.trend_health(next_score))}"%>><%= "#{sc.health_check_average}" "#{sc.trend_health(next_score)}" %></span></td>
         <td class=<%="#{sc.color(sc.trend_app(next_score))}"%>><%= "#{sc.application_check_average}" "#{sc.trend_app(next_score)}" %></td>
         <td><%= link_to 'View', score_card_path(sc) %></td>
+        <td><%= sc.created_at.strftime("%B %d, %Y %l:%M %p") %></td>
       </tr>
     <% end %>
     </tbody>

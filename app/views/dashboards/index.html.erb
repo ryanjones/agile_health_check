@@ -38,7 +38,7 @@
         <tr>
           <td><%= sc.agile_team.name %></td>
           <td><%= link_to 'View', score_card_path(sc) %></td>
-          <td><%= sc.created_at %></td>
+          <td><%= sc.created_at.strftime("%B %d, %Y %l:%M %p") %></td>
         </tr>
       <% end %>
       </tbody>
