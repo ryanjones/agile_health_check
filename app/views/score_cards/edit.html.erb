@@ -7,14 +7,31 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%= simple_form_for @score_card do |f| %>
-          <%= f.simple_fields_for :score_card_answers, @score_card.score_card_answers.sort_by(&:created_at) do |scaf| %>
-          <div class=<%= "question_#{scaf.index + 1}" %>>
-            <%= scaf.object.question.title %>
-            <%= scaf.input :score, collection: ScoreCardAnswer.scores.collect {|key,_v| key }, as: :radio_buttons, label: false %>
-          </div>
-          <% end %>
-        <%= f.button :submit, 'Update answers', class: "btn btn-default btn-md" %>
+  <%= simple_form_for @score_card do |f| %>
+    <h4>Health Check Questions</h4>
+    <br/>
+    <%= f.simple_fields_for :score_card_answers, @score_card.score_card_answers.select { |sca| sca.question.kind != "application_health_check" }.sort_by(&:created_at) do |scaf| %>
+      <div class=<%= "question_#{scaf.index + 1}" %>>
+          <%= scaf.object.question.title %>
+          <%= scaf.input :score, collection: ScoreCardAnswer.scores.sort_by{|k,v| v}.reverse.to_h.collect {|key,_v| key }, 
+                         as: :radio_buttons, label: false %>
+        </div>
     <% end %>
+
+    <% if @score_card.score_card_answers.select { |sca| sca.question.kind == "application_health_check" }.count > 0 %>
+      <br>
+      <h4>Application Check Questions</h4>
+      <br/>
+      <%= f.simple_fields_for :score_card_answers, @score_card.score_card_answers.select { |sca| sca.question.kind == "application_health_check" }.sort_by(&:created_at) do |scaf| %>
+  
+        <div class=<%= "question_#{scaf.index + 1}" %>>
+          <%= scaf.object.question.title %>
+          <%= scaf.input :score, collection: ScoreCardAnswer.scores.sort_by{|k,v| v}.reverse.to_h.except("Yellow").collect {|key,_v| key },
+                         as: :radio_buttons, label: false %>
+        </div>
+      <% end %>
+    <% end %>
+      <%= f.button :submit, 'Update answers', class: "btn btn-default btn-md" %>
+  <% end %>
   </div>
 </div>
