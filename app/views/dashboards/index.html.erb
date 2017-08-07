@@ -13,7 +13,11 @@
       <% @agile_teams.each do |ag| %>
         <tr>
           <td><%= link_to ag.name, agile_team_path(ag) %></td>
-          <td><%= ag.score_cards.last.try(:created_at) || "N/A" %></td>
+          <% if ag.score_cards.last.present? %>
+            <td><%= ag.score_cards.last.created_at_pretty %></td>
+          <% else %>
+            <td>N/A</td>
+          <% end %>
         </tr>
       <% end %>
       </tbody>
@@ -38,7 +42,7 @@
         <tr>
           <td><%= sc.agile_team.name %></td>
           <td><%= link_to 'View', score_card_path(sc) %></td>
-          <td><%= sc.created_at.strftime("%B %d, %Y %l:%M %p") %></td>
+          <td><%= sc.created_at_pretty %></td>
         </tr>
       <% end %>
       </tbody>

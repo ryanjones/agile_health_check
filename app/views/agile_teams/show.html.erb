@@ -12,28 +12,26 @@
 
 <div class="row score_card_listing ">
   <div class="col-md-8">
-  
-  <table class="table table-hover table-striped">
-    <thead>
-    <tr>
-      <th>Team Health (Goal 100%)</th>
-      <th>Application Checks (Goal 100%)</th>
-      <th>Health Check</th>
-      <th>Created On</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @score_cards.each_with_index do |sc, index| %>
-      <% next_score = @score_cards[index + 1] %>
+    <table class="table table-hover table-striped">
+      <thead>
       <tr>
-        <td class=<%="#{sc.color(sc.trend_health(next_score))}"%>><%= "#{sc.health_check_average}" "#{sc.trend_health(next_score)}" %></span></td>
-        <td class=<%="#{sc.color(sc.trend_app(next_score))}"%>><%= "#{sc.application_check_average}" "#{sc.trend_app(next_score)}" %></td>
-        <td><%= link_to 'View', score_card_path(sc) %></td>
-        <td><%= sc.created_at.strftime("%B %d, %Y %l:%M %p") %></td>
+        <th>Team Health (Goal 100%)</th>
+        <th>Application Checks (Goal 100%)</th>
+        <th>Health Check</th>
+        <th>Created On</th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
-  
+      </thead>
+      <tbody>
+      <% @score_cards.each_with_index do |sc, index| %>
+        <% next_score = @score_cards[index + 1] %>
+        <tr>
+          <td class=<%="#{sc.color(sc.trend_health(next_score))}"%>><%= "#{sc.health_check_average}" "#{sc.trend_health(next_score)}" %></span></td>
+          <td class=<%="#{sc.color(sc.trend_app(next_score))}"%>><%= "#{sc.application_check_average}" "#{sc.trend_app(next_score)}" %></td>
+          <td><%= link_to 'View', score_card_path(sc) %></td>
+          <td><%= sc.created_at_pretty %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
