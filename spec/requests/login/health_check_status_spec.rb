@@ -1,7 +1,15 @@
 feature 'health check status' do
-  let(:score_card) { FactoryGirl.create(:score_card) }
-  let(:team_score_card_answer) { FactoryGirl.create(:team_score_card_answer, score_card: score_card) }
-  let(:application_score_card_answer) { FactoryGirl.create(:application_score_card_answer, score_card: score_card) }
+  let(:agile_team) { FactoryGirl.create(:agile_team) }
+  
+  let(:setup_improved_score_cards) do
+    score_card_1 = FactoryGirl.create(:score_card, agile_team: agile_team)
+    score_card_2 = FactoryGirl.create(:score_card, agile_team: agile_team)
+    
+    FactoryGirl.create(:team_score_card_answer, score_card: score_card_1, score: 0)
+    FactoryGirl.create(:application_score_card_answer, score_card: score_card_1, score: 0)
+    FactoryGirl.create(:team_score_card_answer, score_card: score_card_2, score: 1)
+    FactoryGirl.create(:application_score_card_answer, score_card: score_card_2)
+  end
   
   let(:user) do
     user = User.create!(email: "user@example.org", password: "very-secret")
@@ -10,13 +18,12 @@ feature 'health check status' do
   end
 
   it 'should show that an agile team has improved', js: true do
-    score_card
-    team_score_card_answer
-    application_score_card_answer
+    setup_improved_score_cards
     user
-    visit(agile_team_path(score_card.agile_team))
+    visit(agile_team_path(agile_team))
+    
 
-    expect(page).to have_content('0%')
+    expect(page).to have_content('\u25BC')
   end
 
   pending 'should show that a team is not declining or improving'

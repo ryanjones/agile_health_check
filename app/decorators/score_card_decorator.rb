@@ -13,6 +13,7 @@ class ScoreCardDecorator < Draper::Decorator
   end
 
   def trend_app(next_score)
+    require "pry"; binding.pry
     return if next_score.blank?
     if next_score.application_check_average.to_d > self.application_check_average.to_d
       "\u25BC"
