@@ -12,4 +12,11 @@ FactoryGirl.define do
 
     score 0
   end
+
+  factory :po_score_card_answer, class: ScoreCardAnswer do
+    association :score_card
+    association :question, factory: :product_team_question_1
+
+    score 0
+  end
 end
