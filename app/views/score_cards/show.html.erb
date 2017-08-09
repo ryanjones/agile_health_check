@@ -1,9 +1,13 @@
 <div class="row">
-  <h2>Health Check for <%= @score_card.agile_team.name %></h2>
+  <div class="col-md-12">
+    <h2>Health Check for <%= @score_card.agile_team.name %></h2>
+  </div>
 </div>
 
 <div class="row">
-  <table class="table table-hover">
+  <div class="col-md-6">
+
+  <table class="table table-hover table-striped">
     <thead>
     <tr>
       <th>Health Check Questions</th>
@@ -20,8 +24,8 @@
           <td class="warning"></td>
         <% elsif score_card_answer.score == "Red" %>
           <td class="danger"></td>
-      <% end %>
-       </tr>
+        <% end %>
+      </tr>
     <% end %>
 
     <% if @score_card_answers.select { |sca| sca.question.kind == "application_health_check" }.count > 0 %>
@@ -53,4 +57,5 @@
   <br>
   <br>
   <%= link_to 'Destroy health check', @score_card, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 </div>

@@ -2,8 +2,10 @@ class AgileTeamsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @agile_team = AgileTeam.find(params[:id])
-    @score_cards = ScoreCard.where(agile_team: @agile_team).order(created_at: :desc)
+    @agile_team = AgileTeam.find(params[:id]).decorate
+    @score_cards = ScoreCardDecorator.decorate_collection(
+      ScoreCard.where(agile_team: @agile_team).includes(:score_card_answers).includes(:questions).order(created_at: :desc)
+    )
     @score_card = ScoreCard.new
     
     set_breadcrumbs

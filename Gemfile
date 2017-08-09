@@ -36,6 +36,7 @@ gem 'pg'
 gem 'simple_form'
 gem "audited", "~> 4.5"
 gem "breadcrumbs_on_rails"
+gem 'draper'
 
 group :development, :test do
   gem 'rspec-rails'

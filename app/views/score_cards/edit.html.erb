@@ -1,9 +1,12 @@
 <div class="row">
-  <h2>Health Check for <%= @score_card.agile_team.name %></h2>
-  <br>
+  <div class="col-md-12">
+    <h2>Health Check for <%= @score_card.agile_team.name %></h2>
+    <br>
+  </div>
 </div>
 
 <div class="row">
+  <div class="col-md-12">
   <%= simple_form_for @score_card do |f| %>
     <h4>Health Check Questions</h4>
     <br/>
@@ -30,4 +33,5 @@
     <% end %>
       <%= f.button :submit, 'Update answers', class: "btn btn-default btn-md" %>
   <% end %>
+  </div>
 </div>
