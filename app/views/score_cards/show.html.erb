@@ -19,11 +19,11 @@
       <tr>
         <td><%= score_card_answer.question.title %></td>
         <% if score_card_answer.score == "Green" %>
-          <td class="success"></td>
+          <td class="green-background"></td>
         <% elsif score_card_answer.score == "Yellow" %>
-          <td class="warning"></td>
+          <td class="yellow-background"></td>
         <% elsif score_card_answer.score == "Red" %>
-          <td class="danger"></td>
+          <td class="red-background"></td>
         <% end %>
       </tr>
     <% end %>
@@ -40,11 +40,11 @@
         <tr>
           <td><%= score_card_answer.question.title %></td>
           <% if score_card_answer.score == "Green" %>
-            <td class="success"></td>
+            <td class="green-background"></td>
           <% elsif score_card_answer.score == "Yellow" %>
-            <td class="warning"></td>
+            <td class="yellow-background"></td>
           <% elsif score_card_answer.score == "Red" %>
-            <td class="danger"></td>
+            <td class="red-background"></td>
           <% end %>
         </tr>
       <% end %>
