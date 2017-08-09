@@ -12,3 +12,14 @@ This application is for facilitators of an agile health check (also known as a s
 
 - Visit https://agile-health-check-demo.herokuapp.com/
 - Login with `agile_coach@example.com` / `waffles`
+
+### Screenshots
+#### Dashboard
+![Dashboard](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_team_values.png)
+
+#### Team View
+![Team View](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_team_view.png)
+
+#### Score Card Values
+![Score Card Values](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_team_values.png)
+
