@@ -21,5 +21,5 @@ This application is for facilitators of an agile health check (also known as a s
 ![Team View](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_team_view.png)
 
 #### Score Card Values
-![Score Card Values](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_team_view.png)
+![Score Card Values](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_team_values.png)
 
