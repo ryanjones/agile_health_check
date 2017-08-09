@@ -47,7 +47,7 @@ feature 'health check' do
     click_button 'Update answers'
 
     expect(page).to have_content('Health check was successfully updated.')
-    expect(page).to have_css(".warning")
+    expect(page).to have_css(".yellow-background")
   end
   
 
@@ -80,7 +80,7 @@ feature 'health check' do
     click_button 'Update answers'
 
     expect(page).to have_content('Health check was successfully updated.')
-    expect(page).to have_css(".warning")
+    expect(page).to have_css(".yellow-background")
   end
   
   it "should destroy a health check" do
