@@ -2,7 +2,7 @@ class ScoreCardDecorator < Draper::Decorator
   delegate_all
 
   def trend_health(next_score)
-    return if next_score.blank?
+    return if next_score.blank? || next_score.health_check_average.blank?
     if next_score.health_check_average.to_d > self.health_check_average.to_d
       "▼"
     elsif next_score.health_check_average.to_d == self.health_check_average.to_d
@@ -13,7 +13,7 @@ class ScoreCardDecorator < Draper::Decorator
   end
 
   def trend_app(next_score)
-    return if next_score.blank?
+    return if next_score.blank? || next_score.application_check_average.blank?
     if next_score.application_check_average.to_d > self.application_check_average.to_d
       "▼"
     elsif next_score.application_check_average.to_d == self.application_check_average.to_d

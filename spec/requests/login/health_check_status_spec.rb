@@ -94,7 +94,6 @@ feature 'health check status' do
     user
     visit(agile_team_path(product_agile_team))
 
-    expect(page).to have_content('0%▼')
-    expect(page).to have_content('50%▲')
+    expect(page).to have_content('100%▲')
   end
 end
