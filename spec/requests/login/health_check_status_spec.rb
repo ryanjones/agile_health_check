@@ -96,4 +96,11 @@ feature 'health check status' do
 
     expect(page).to have_content('100%▲')
   end
+  
+  it 'should not show application health checks for product owners' do
+    setup_po_score_cards
+    user
+    visit(agile_team_path(product_agile_team))
+    expect(page).not_to have_content('Application Checks')
+  end
 end

@@ -16,7 +16,10 @@
       <thead>
       <tr>
         <th>Team Health (Goal 100%)</th>
-        <th>Application Checks (Goal 100%)</th>
+        <% if @agile_team.kind != "product_team" %>
+          <th>Application Checks (Goal 100%)</th>
+        <% end %>
+        
         <th>Health Check</th>
         <th>Created On</th>
       </tr>
@@ -26,7 +29,9 @@
         <% next_score = @score_cards[index + 1] %>
         <tr>
           <td class=<%="#{sc.color(sc.trend_health(next_score))}"%>><%= "#{sc.health_check_average}" "#{sc.trend_health(next_score)}" %></span></td>
-          <td class=<%="#{sc.color(sc.trend_app(next_score))}"%>><%= "#{sc.application_check_average}" "#{sc.trend_app(next_score)}" %></td>
+          <% if @agile_team.kind != "product_team" %>
+            <td class=<%="#{sc.color(sc.trend_app(next_score))}"%>><%= "#{sc.application_check_average}" "#{sc.trend_app(next_score)}" %></td>
+          <% end %>
           <td><%= link_to 'View', score_card_path(sc) %></td>
           <td><%= sc.created_at_pretty %></td>
         </tr>
