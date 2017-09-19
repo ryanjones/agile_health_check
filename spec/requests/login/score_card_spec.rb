@@ -45,4 +45,18 @@ feature 'health check' do
     visit(score_card_path(ScoreCard.last))
     expect(page).not_to have_content('Application Check Questions')
   end
+
+  it 'should not show duplicate app health check questions' do
+    agile_team
+    user
+    question
+    visit(agile_team_path(agile_team))
+
+    click_button 'Create a new health check'
+
+    expect(page).to have_content('Health check created successfully.')
+    expect(page).to have_content('Application Check Questions')
+    visit(score_card_path(ScoreCard.last))
+    expect(page).not_to have_content('Disaster Recovery - Application', count: 2)
+  end
 end
