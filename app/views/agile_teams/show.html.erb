@@ -6,6 +6,7 @@
       <%= f.hidden_field :agile_team_id, value: @agile_team.id %>
       <%= f.button :submit, 'Create a new health check', class: "btn btn-default btn-md" %>
     <% end %>
+    <%= link_to 'Health Progression', health_progression_path(@agile_team) %>
   </div>
 </div>
 

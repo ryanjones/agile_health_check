@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= @agile_team.name %> - Last 5 Health Checks</h2>
+  </div>
+</div>
+<br>
+
+<div class="row ">
+  <div class="col-md-8">
+    <table class="table table-hover table-striped">
+      <thead>
+      <tr>
+        <th>Health Check Questions</th>
+        <th>Health Level</th>
+        <th>Health Level</th>
+        <th>Health Level</th>
+        <th>Health Level</th>
+        <th>Health Level</th>
+      </tr>
+      </thead>
+      
+   
+      <tbody>
+      <% @answers.each do |answer| %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+      </tbody>
+      
+    </table>
+  </div>
+</div>
