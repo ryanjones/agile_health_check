@@ -21,14 +21,15 @@
       
    
       <tbody>
-      <% @answers.each do |answer| %>
+      <% counter = 0 %>
+      <% @question_count.times.each do |count| %>
         <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><%= @answers[counter][count] %></td>
+          <td><%= @answers[counter+1][count] %></td>
+          <td><%= @answers[counter+2][count] %></td>
+          <td><%= @answers[counter+3][count] %></td>
+          <td><%= @answers[counter+4][count] %></td>
+          <td><%= @answers[counter+5][count] %></td>
         </tr>
       <% end %>
       </tbody>

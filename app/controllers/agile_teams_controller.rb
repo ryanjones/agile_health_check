@@ -15,27 +15,23 @@ class AgileTeamsController < ApplicationController
     @agile_team = AgileTeam.find(params[:id]).decorate
     score_cards = ScoreCard.where(agile_team: @agile_team).includes(:score_card_answers).includes(:questions).order(created_at: :desc).first(5)
     
-    # questions, a, a, a, a, a
+    # qs, a, a, a, a, a
     answer_array = [[],[],[],[],[],[]]
     question_array = []
     
-    input_questions = true
     array_answer_count = 1
     score_cards.each do |sc|
       sc.score_card_answers.each do |sca|
-        question_array << sca.question.title unless input_questions
+        question_array << sca.question.title if array_answer_count == 1
         answer_array[array_answer_count] << sca.score
       end
 
       array_answer_count += 1
-      input_questions = false
     end
     
     answer_array[0] = question_array
-    
-
+    @question_count = question_array.count
     @answers = answer_array
-    
     set_progression_breadcrumbs
   end
   
