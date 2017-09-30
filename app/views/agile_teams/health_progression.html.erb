@@ -11,11 +11,9 @@
       <thead>
       <tr>
         <th>Health Check Questions</th>
-        <th>Health Level</th>
-        <th>Health Level</th>
-        <th>Health Level</th>
-        <th>Health Level</th>
-        <th>Health Level</th>
+        <% (@score_card_count - 1).times.each do |_sc| %>
+          <th>Health Level</th>
+        <% end %>
       </tr>
       </thead>
       
@@ -24,12 +22,9 @@
       <% counter = 0 %>
       <% @question_count.times.each do |count| %>
         <tr>
-          <td><%= @answers[counter][count] %></td>
-          <td class="<%= td_color(@answers[counter+1][count])%>"><%= @answers[counter+1][count] %></td>
-          <td class="<%= td_color(@answers[counter+2][count])%>"><%= @answers[counter+2][count] %></td>
-          <td class="<%= td_color(@answers[counter+3][count])%>"><%= @answers[counter+3][count] %></td>
-          <td class="<%= td_color(@answers[counter+4][count])%>"><%= @answers[counter+4][count] %></td>
-          <td class="<%= td_color(@answers[counter+5][count])%>"><%= @answers[counter+5][count] %></td>
+          <% @score_card_count.times.each do |scc| %>
+            <td class="<%= td_color(@answers[counter+scc][count])%>"><%= @answers[counter+scc][count] %></td>
+          <% end %>
         </tr>
       <% end %>
       </tbody>
