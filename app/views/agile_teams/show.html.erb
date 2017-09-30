@@ -1,17 +1,15 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6">
     <h2><%= @agile_team.name %></h2>
     <br>
-    <%= simple_form_for @score_card do |f| %>
-      <%= f.hidden_field :agile_team_id, value: @agile_team.id %>
-      <%= f.button :submit, 'Create a new health check', class: "btn btn-default btn-md" %>
-    <% end %>
-    <%= link_to 'Health Progression', health_progression_path(@agile_team) %>
+    <p> 
+      Visualize your teams health progression <%= link_to 'side by side', health_progression_path(@agile_team) %>.
+    </p>
   </div>
 </div>
 
 
-<div class="row score_card_listing ">
+<div class="row score_card_listing">
   <div class="col-md-8">
     <table class="table table-hover table-striped">
       <thead>
@@ -39,5 +37,9 @@
       <% end %>
       </tbody>
     </table>
+    <%= simple_form_for @score_card do |f| %>
+      <%= f.hidden_field :agile_team_id, value: @agile_team.id %>
+      <%= f.button :submit, 'Create a new health check', class: "btn btn-default btn-sm" %>
+    <% end %>
   </div>
 </div>
