@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <h2><%= @agile_team.name %> - Last <%= @score_card_count - 1 %> Health Checks</h2>
+    <h2><%= @agile_team.name %> - Last <%= @report.score_card_count - 1 %> Health Checks</h2>
   </div>
 </div>
 <br>
@@ -11,7 +11,7 @@
       <thead>
       <tr>
         <th>Health Check Questions</th>
-        <% (@score_card_count - 1).times.each do |_sc| %>
+        <% (@report.score_card_count - 1).times.each do |_sc| %>
           <th>Health Level</th>
         <% end %>
       </tr>
@@ -20,10 +20,10 @@
    
       <tbody>
       <% counter = 0 %>
-      <% @question_count.times.each do |count| %>
+      <% @report.question_count.times.each do |count| %>
         <tr>
-          <% @score_card_count.times.each do |scc| %>
-            <td class="<%= td_color(@answers[counter+scc][count])%>"><%= @answers[counter+scc][count] %></td>
+          <% @report.score_card_count.times.each do |scc| %>
+            <td class="<%= td_color(@report.answers[counter+scc][count])%>"><%= @report.answers[counter+scc][count] %></td>
           <% end %>
         </tr>
       <% end %>
