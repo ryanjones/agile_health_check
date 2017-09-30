@@ -25,11 +25,11 @@
       <% @question_count.times.each do |count| %>
         <tr>
           <td><%= @answers[counter][count] %></td>
-          <td><%= @answers[counter+1][count] %></td>
-          <td><%= @answers[counter+2][count] %></td>
-          <td><%= @answers[counter+3][count] %></td>
-          <td><%= @answers[counter+4][count] %></td>
-          <td><%= @answers[counter+5][count] %></td>
+          <td class="<%= td_color(@answers[counter+1][count])%>"><%= @answers[counter+1][count] %></td>
+          <td class="<%= td_color(@answers[counter+2][count])%>"><%= @answers[counter+2][count] %></td>
+          <td class="<%= td_color(@answers[counter+3][count])%>"><%= @answers[counter+3][count] %></td>
+          <td class="<%= td_color(@answers[counter+4][count])%>"><%= @answers[counter+4][count] %></td>
+          <td class="<%= td_color(@answers[counter+5][count])%>"><%= @answers[counter+5][count] %></td>
         </tr>
       <% end %>
       </tbody>
