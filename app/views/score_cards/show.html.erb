@@ -53,11 +53,7 @@
     <% end %>
     </tbody>
   </table>
-
-  <br>
-  <%= link_to 'Edit answers', edit_score_card_path(@score_card) %>
-  <br>
-  <br>
-  <%= link_to 'Destroy health check', @score_card, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit health check answers', edit_score_card_path(@score_card) %> | <%= link_to 'Destroy health check', @score_card, method: :delete, data: { confirm: 'Are you sure?' }, class:'red-text' %>
+  <br><br>
   </div>
 </div>
