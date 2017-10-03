@@ -17,18 +17,16 @@
       </tr>
       </thead>
       
-   
       <tbody>
-      <% counter = 0 %>
+      <% column_counter = 0 %>
       <% @report.question_count.times.each do |count| %>
         <tr>
           <% @report.score_card_count.times.each do |scc| %>
-            <td class="<%= td_color(@report.answers[counter+scc][count])%>"><%= @report.answers[counter+scc][count] %></td>
+            <td class="<%= td_color(@report.answers[column_counter+scc][count])%>"><%= @report.answers[column_counter+scc][count] %></td>
           <% end %>
         </tr>
       <% end %>
       </tbody>
-      
     </table>
   </div>
 </div>

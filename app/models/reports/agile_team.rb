@@ -21,19 +21,17 @@ class Reports::AgileTeam
     # dump questions into the first array within results_array and populate the other arrays with answers
     question_array = []
     array_answer_count = 1
-    score_cards.each do |sc|
+    score_cards.reverse.each do |sc| # reverse order to return oldest left to right
       sc.score_card_answers.each do |sca|
         question_array << sca.question.title if array_answer_count == 1
         results_array[array_answer_count] << sca.score
       end
-
       array_answer_count += 1
     end
 
     # combine question array and results_array (which is now full of answers)
     results_array[0] = question_array
-
-
+    
     # We now have a results_array that looks like this: [[q], [a], [a], [a], [a], [a]]
     self.answers = results_array
     self.question_count = question_array.count
