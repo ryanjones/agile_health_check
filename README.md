@@ -23,3 +23,6 @@ This application is for facilitators of an agile health check (also known as a s
 #### Score Card Values
 ![Score Card Values](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_team_values.png)
 
+#### Side-by-Side Health Progression
+![Side by Side Progression](https://github.com/ryanjones/agile_health_check/blob/master/github/agile_teams_side_by_side.png)
+
