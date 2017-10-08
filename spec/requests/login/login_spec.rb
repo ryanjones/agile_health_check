@@ -13,14 +13,14 @@ feature 'login' do
     product_agile_team
     user
     
-    visit(dashboard_path)
+    visit(dashboards_path)
 
     expect(page).to have_content(agile_team.name)
     expect(page).to have_content(product_agile_team.name)
   end
   
   it "should deny access to unauthenticated users" do
-    visit(dashboard_path)
+    visit(dashboards_path)
 
     expect(page).to have_content("You need to sign in or sign up before continuing.")
   end

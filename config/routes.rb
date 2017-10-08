@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'score_cards/create'
-
-  get 'score_cards/new'
-
-  get 'dashboards/index'
+  resources :questions, only: [:index]
+  resources :dashboards, only: [:index]
+  resources :agile_teams, only: [:show]
+  resources :score_cards
 
   devise_for :users, skip: [:registrations]
   as :user do
@@ -11,11 +10,8 @@ Rails.application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
   get 'pages/welcome'
-  get 'dashboard', to: 'dashboards#index'
-  resources :agile_teams, only: [:show]
   get 'agile_teams/:id/health_progression', to: 'agile_teams#health_progression', as: 'health_progression'
 
-  resources :score_cards
   
   root to: 'pages#welcome'
 end
