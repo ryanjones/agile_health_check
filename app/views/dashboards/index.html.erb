@@ -14,7 +14,7 @@
         <tr>
           <td><%= link_to ag.name, agile_team_path(ag) %></td>
           <% if ag.score_cards.last.present? %>
-            <td><%= ag.score_cards.last.created_at_pretty %></td>
+            <td><%= ag.score_cards.sort_by { |s| s.created_at }.last.created_at_pretty %></td>
           <% else %>
             <td>N/A</td>
           <% end %>
