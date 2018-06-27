@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
+  'https://github.com/#{repo_name}.git'
 end
 
 
@@ -34,8 +34,8 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'pg'
 gem 'simple_form'
-gem "audited", "~> 4.5"
-gem "breadcrumbs_on_rails"
+gem 'audited', '~> 4.5'
+gem 'breadcrumbs_on_rails'
 gem 'draper'
 
 group :development, :test do
@@ -51,7 +51,7 @@ end
 
 group :development do
   gem 'better_errors', git: 'https://github.com/charliesome/better_errors.git', branch: 'master'
-  gem "binding_of_caller"
+  gem 'binding_of_caller'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
