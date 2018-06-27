@@ -59,6 +59,6 @@ class ScoreCardDecorator < Draper::Decorator
   end
   
   def created_at_pretty
-    object.created_at.strftime("%B %d, %Y %l:%M %p")
+    object.created_at.strftime("%B %d, %Y%l:%M %p")
   end
 end
