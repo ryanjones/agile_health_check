@@ -38,6 +38,7 @@ gem 'audited'
 gem 'breadcrumbs_on_rails'
 gem 'draper'
 gem 'bootsnap'
+gem 'webpacker'
 
 group :development, :test do
   gem 'rspec-rails'
