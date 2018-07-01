@@ -15,5 +15,3 @@ import 'bootstrap/dist/js/bootstrap';
 Rails.start();
 Turbolinks.start();
 
-console.log('Hello World from Webpacker')
-
