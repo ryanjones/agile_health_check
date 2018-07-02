@@ -14,9 +14,9 @@ require 'support/factory_girl'
 
 Capybara.javascript_driver = :webkit
 Capybara.default_driver = :webkit
-# Capybara::Webkit.configure do |config|
-#   config.block_unknown_urls
-# end
+Capybara::Webkit.configure do |config|
+  config.block_unknown_urls
+end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }

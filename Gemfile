@@ -43,7 +43,7 @@ gem 'webpacker'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'capybara-webkit', git: "git@github.com:thoughtbot/capybara-webkit.git"
   gem 'headless'
   gem 'database_cleaner'
   gem 'launchy'
@@ -59,6 +59,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

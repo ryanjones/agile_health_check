@@ -1,4 +1,12 @@
 GIT
+  remote: git@github.com:thoughtbot/capybara-webkit.git
+  revision: 8329b19e94ff08eeb517cac49bfffd2f667ea90d
+  specs:
+    capybara-webkit (1.15.0)
+      capybara (>= 2.3, < 4.0)
+      json
+
+GIT
   remote: https://github.com/charliesome/better_errors.git
   revision: 300949658e5cd729e4349eadb02be8d6e4d96503
   branch: master
@@ -82,9 +90,6 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
-    capybara-webkit (1.15.0)
-      capybara (>= 2.3, < 4.0)
-      json
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -275,7 +280,7 @@ DEPENDENCIES
   bootswatch-rails
   breadcrumbs_on_rails
   capybara
-  capybara-webkit
+  capybara-webkit!
   coffee-rails
   database_cleaner
   devise
@@ -296,7 +301,6 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks
-  tzinfo-data
   uglifier
   webpacker
 

@@ -1,4 +1,4 @@
-feature 'health check', js: true do
+feature 'health check' do
   let(:agile_team) { FactoryGirl.create(:agile_team) }
   let(:product_agile_team) { FactoryGirl.create(:product_agile_team) }
   
