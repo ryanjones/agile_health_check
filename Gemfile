@@ -48,7 +48,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'pry'
-  gem 'factory_girl'
+  gem 'factory_bot'
 end
 
 group :development do

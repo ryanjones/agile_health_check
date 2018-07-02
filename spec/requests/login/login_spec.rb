@@ -1,6 +1,6 @@
 feature 'login' do
-  let(:agile_team) { FactoryGirl.create(:agile_team) }
-  let(:product_agile_team) { FactoryGirl.create(:product_agile_team) }
+  let(:agile_team) { FactoryBot.create(:agile_team) }
+  let(:product_agile_team) { FactoryBot.create(:product_agile_team) }
 
   let(:user) do
     user = User.create!(email: "user@example.org", password: "very-secret")

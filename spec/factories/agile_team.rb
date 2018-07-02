@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :agile_team do
     name "Agile Team #1"
     kind :agile_team

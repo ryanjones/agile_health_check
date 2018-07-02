@@ -118,7 +118,7 @@ GEM
       request_store (~> 1.0)
     erubi (1.7.1)
     execjs (2.7.0)
-    factory_girl (4.9.0)
+    factory_bot (4.10.0)
       activesupport (>= 3.0.0)
     ffi (1.9.25)
     globalid (0.4.1)
@@ -286,7 +286,7 @@ DEPENDENCIES
   devise
   devise-bootstrap-views
   draper
-  factory_girl
+  factory_bot
   headless
   jbuilder
   jquery-rails
