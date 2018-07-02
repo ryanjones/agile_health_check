@@ -7,11 +7,15 @@ addons:
 services:
   - redis-server
   - postgresql
-bundler_args: "--binstubs --without production"
+install:
+  - bundle install --binstubs --without production
+  - bundle --version
 before_install:
   - "export DISPLAY=:99.0"
+  - gem install bundler -v 1.16.0
+  - bundle --version
 before_script:
-  - RAILS_ENV=production SECRET_KEY_BASE=waffles bundle exec rails assets:precompile
+  - bundle exec rails assets:precompile
   - bundle exec rails db:create
   - bundle exec rails db:migrate
   - 'sh -e /etc/init.d/xvfb start'
