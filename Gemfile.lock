@@ -1,12 +1,4 @@
 GIT
-  remote: git@github.com:thoughtbot/capybara-webkit.git
-  revision: 8329b19e94ff08eeb517cac49bfffd2f667ea90d
-  specs:
-    capybara-webkit (1.15.0)
-      capybara (>= 2.3, < 4.0)
-      json
-
-GIT
   remote: https://github.com/charliesome/better_errors.git
   revision: 300949658e5cd729e4349eadb02be8d6e4d96503
   branch: master
@@ -15,6 +7,14 @@ GIT
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
+
+GIT
+  remote: https://github.com/thoughtbot/capybara-webkit.git
+  revision: 8329b19e94ff08eeb517cac49bfffd2f667ea90d
+  specs:
+    capybara-webkit (1.15.0)
+      capybara (>= 2.3, < 4.0)
+      json
 
 GEM
   remote: https://rubygems.org/
