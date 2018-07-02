@@ -12,7 +12,7 @@ require 'headless'
 require 'database_cleaner'
 require 'support/factory_girl'
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :webkit_debug
 Capybara.default_driver = :webkit
 Capybara::Webkit.configure do |config|
   config.block_unknown_urls
