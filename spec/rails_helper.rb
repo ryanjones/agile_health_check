@@ -12,10 +12,12 @@ require 'headless'
 require 'database_cleaner'
 require 'support/factory_girl'
 
-Capybara.javascript_driver = :webkit_debug
+Capybara.javascript_driver = :webkit
 Capybara.default_driver = :webkit
 Capybara::Webkit.configure do |config|
   config.block_unknown_urls
+  config.raise_javascript_errors = true
+  config.debug = true
 end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
