@@ -38,16 +38,18 @@ gem 'audited'
 gem 'breadcrumbs_on_rails'
 gem 'draper'
 gem 'bootsnap'
+gem 'webpacker'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'capybara-webkit'
+  gem 'capybara-selenium'
+  gem 'chromedriver-helper'
   gem 'headless'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'pry'
-  gem 'factory_girl'
+  gem 'factory_bot'
 end
 
 group :development do
@@ -58,6 +60,3 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

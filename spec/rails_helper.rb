@@ -7,20 +7,15 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
-require 'capybara/webkit'
 require 'headless'
 require 'database_cleaner'
 require 'support/factory_girl'
 
-Capybara.javascript_driver = :webkit
-Capybara.default_driver = :webkit
-# Capybara::Webkit.configure do |config|
-#   config.block_unknown_urls
-# end
+Capybara.javascript_driver = :selenium_chrome_headless
+Capybara.default_driver = :rack_test
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
-
 
 # Add additional requires below this line. Rails is not loaded until this point!
 

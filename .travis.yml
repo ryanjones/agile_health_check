@@ -1,17 +1,21 @@
-sudo: false
+sudo: required
 cache: bundler
 rvm:
   - "2.3.0"
 addons:
   postgresql: "9.4"
+  chrome: stable
 services:
   - redis-server
   - postgresql
-bundler_args: "--binstubs --without production"
+install:
+  - bundle install --binstubs
 before_install:
   - "export DISPLAY=:99.0"
 before_script:
-  - bundle exec rake db:create
-  - bundle exec rake db:migrate
+  - bundle exec rails assets:precompile
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
   - 'sh -e /etc/init.d/xvfb start'
   - psql -c 'create database travis_ci_test;' -U postgres
+  - sleep 3

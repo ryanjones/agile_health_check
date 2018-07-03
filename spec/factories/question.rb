@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :agile_team_question_1, class: Question do
     title 'Delivering Value - Agile'
     kind :team_health_check

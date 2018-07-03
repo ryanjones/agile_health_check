@@ -19,6 +19,10 @@
 
 /node_modules
 /yarn-error.log
-
+/public/packs/
 .byebug_history
-.env
+.env/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity

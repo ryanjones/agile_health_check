@@ -1,6 +1,6 @@
 feature 'health check' do
-  let(:agile_team) { FactoryGirl.create(:agile_team) }
-  let(:product_agile_team) { FactoryGirl.create(:product_agile_team) }
+  let(:agile_team) { FactoryBot.create(:agile_team) }
+  let(:product_agile_team) { FactoryBot.create(:product_agile_team) }
   
   let(:user) do
     user = User.create!(email: "user@example.org", password: "very-secret")
@@ -9,13 +9,13 @@ feature 'health check' do
   end
   
   let(:question) do
-    FactoryGirl.create(:agile_team_question_1)
-    FactoryGirl.create(:agile_team_question_2)
-    FactoryGirl.create(:agile_team_question_3)
-    FactoryGirl.create(:product_team_question_1)
-    FactoryGirl.create(:product_team_question_2)
-    FactoryGirl.create(:application_question_1)
-    FactoryGirl.create(:application_question_2)
+    FactoryBot.create(:agile_team_question_1)
+    FactoryBot.create(:agile_team_question_2)
+    FactoryBot.create(:agile_team_question_3)
+    FactoryBot.create(:product_team_question_1)
+    FactoryBot.create(:product_team_question_2)
+    FactoryBot.create(:application_question_1)
+    FactoryBot.create(:application_question_2)
   end
 
   it 'should allow a user to create a health check for an agile team', js: true do
@@ -83,14 +83,16 @@ feature 'health check' do
     expect(page).to have_css(".yellow-background")
   end
   
-  it "should destroy a health check" do
+  it "should destroy a health check", js: true do
     product_agile_team
     user
     question
     visit(agile_team_path(product_agile_team))
     click_button 'Create a new health check'
     click_button 'Update answers'
-    click_on 'Destroy health check'
+    accept_confirm do
+      click_link 'Destroy health check'
+    end
 
     expect(page).to have_content('Health check deleted successfully.')
   end

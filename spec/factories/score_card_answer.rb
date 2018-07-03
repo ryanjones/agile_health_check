@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :team_score_card_answer, class: ScoreCardAnswer do
     association :score_card
     association :question, factory: :agile_team_question_1
