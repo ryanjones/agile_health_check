@@ -90,7 +90,9 @@ feature 'health check' do
     visit(agile_team_path(product_agile_team))
     click_button 'Create a new health check'
     click_button 'Update answers'
-    click_on 'Destroy health check'
+    accept_confirm do
+      click_link 'Destroy health check'
+    end
 
     expect(page).to have_content('Health check deleted successfully.')
   end

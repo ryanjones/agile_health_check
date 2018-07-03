@@ -58,6 +58,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
+    archive-zip (0.11.0)
+      io-like (~> 0.3.0)
     arel (9.0.0)
     audited (4.7.1)
       activerecord (>= 4.0, < 5.3)
@@ -87,6 +89,9 @@ GEM
       selenium-webdriver
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.2.0)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -123,6 +128,7 @@ GEM
     headless (2.3.1)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -281,6 +287,7 @@ DEPENDENCIES
   breadcrumbs_on_rails
   capybara
   capybara-selenium
+  chromedriver-helper
   coffee-rails
   database_cleaner
   devise

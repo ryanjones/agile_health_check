@@ -44,6 +44,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'capybara-selenium'
+  gem 'chromedriver-helper'
   gem 'headless'
   gem 'database_cleaner'
   gem 'launchy'

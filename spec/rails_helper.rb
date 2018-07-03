@@ -11,33 +11,11 @@ require 'headless'
 require 'database_cleaner'
 require 'support/factory_girl'
 
-require 'selenium/webdriver'
-
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w(headless disable-gpu) }
-  )
-
-  Capybara::Selenium::Driver.new app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities
-end
-
-Capybara.javascript_driver = :headless_chrome
+Capybara.javascript_driver = :selenium_chrome_headless
 Capybara.default_driver = :rack_test
-Capybara::Webkit.configure do |config|
-  config.block_unknown_urls
-  config.raise_javascript_errors = true
-  config.debug = true
-end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Dir[Rails.root.join("spec/factories/**/*.rb")].each { |f| require f }
-
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
