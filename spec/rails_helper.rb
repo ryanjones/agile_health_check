@@ -7,13 +7,28 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/rails'
-require 'capybara/webkit'
 require 'headless'
 require 'database_cleaner'
 require 'support/factory_girl'
 
-Capybara.javascript_driver = :webkit
-Capybara.default_driver = :webkit
+require 'selenium/webdriver'
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: { args: %w(headless disable-gpu) }
+  )
+
+  Capybara::Selenium::Driver.new app,
+                                 browser: :chrome,
+                                 desired_capabilities: capabilities
+end
+
+Capybara.javascript_driver = :headless_chrome
+Capybara.default_driver = :rack_test
 Capybara::Webkit.configure do |config|
   config.block_unknown_urls
   config.raise_javascript_errors = true

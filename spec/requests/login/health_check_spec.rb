@@ -1,4 +1,4 @@
-feature 'health check', js: true do
+feature 'health check' do
   let(:agile_team) { FactoryBot.create(:agile_team) }
   let(:product_agile_team) { FactoryBot.create(:product_agile_team) }
   
@@ -83,7 +83,7 @@ feature 'health check', js: true do
     expect(page).to have_css(".yellow-background")
   end
   
-  it "should destroy a health check" do
+  it "should destroy a health check", js: true do
     product_agile_team
     user
     question
@@ -92,8 +92,6 @@ feature 'health check', js: true do
     click_button 'Update answers'
     click_on 'Destroy health check'
 
-    expect(page.driver.error_messages.count).to eq(0)
-    puts page.driver.error_messages
     expect(page).to have_content('Health check deleted successfully.')
   end
   

@@ -43,7 +43,7 @@ gem 'webpacker'
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'capybara-webkit', git: "https://github.com/thoughtbot/capybara-webkit.git"
+  gem 'capybara-selenium'
   gem 'headless'
   gem 'database_cleaner'
   gem 'launchy'
