@@ -92,6 +92,8 @@ feature 'health check', js: true do
     click_button 'Update answers'
     click_on 'Destroy health check'
 
+    expect(page.driver.error_messages.count).to eq(0)
+    puts page.driver.error_messages
     expect(page).to have_content('Health check deleted successfully.')
   end
   
