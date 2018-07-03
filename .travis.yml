@@ -9,15 +9,13 @@ services:
   - redis-server
   - postgresql
 install:
-  - bundle _1.16.0_ install --binstubs --without production
-  - bundle --version
+  - bundle install --binstubs
 before_install:
   - "export DISPLAY=:99.0"
-  - gem install bundler -v 1.16.0
-  - bundle --version
 before_script:
   - bundle exec rails assets:precompile
   - bundle exec rails db:create
   - bundle exec rails db:migrate
   - 'sh -e /etc/init.d/xvfb start'
   - psql -c 'create database travis_ci_test;' -U postgres
+  - sleep 3
