@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   get 'agile_teams/:id/health_progression', to: 'agile_teams#health_progression', as: 'health_progression'
 
   resources :score_cards
-  
+
+  namespace :api, defaults: { format: :json } do
+    namespace :stats do
+      get 'agile_teams'
+    end
+  end
+
   root to: 'pages#welcome'
 end
