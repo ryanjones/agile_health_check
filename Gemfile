@@ -39,6 +39,7 @@ gem 'breadcrumbs_on_rails'
 gem 'draper'
 gem 'bootsnap'
 gem 'webpacker'
+gem 'graphql'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -60,3 +61,5 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'graphiql-rails', group: :development

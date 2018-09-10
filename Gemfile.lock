@@ -125,6 +125,10 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.4.11)
+      railties
+      sprockets-rails
+    graphql (1.8.8)
     headless (2.3.1)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
@@ -294,6 +298,8 @@ DEPENDENCIES
   devise-bootstrap-views
   draper
   factory_bot
+  graphiql-rails
+  graphql
   headless
   jbuilder
   jquery-rails
