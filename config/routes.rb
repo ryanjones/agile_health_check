@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  end
+  post "/graphql", to: "graphql#execute"
   get 'score_cards/create'
 
   get 'score_cards/new'
@@ -16,6 +20,12 @@ Rails.application.routes.draw do
   get 'agile_teams/:id/health_progression', to: 'agile_teams#health_progression', as: 'health_progression'
 
   resources :score_cards
-  
+
+  namespace :api, defaults: { format: :json } do
+    namespace :stats do
+      get 'agile_teams'
+    end
+  end
+
   root to: 'pages#welcome'
 end

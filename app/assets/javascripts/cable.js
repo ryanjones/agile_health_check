@@ -6,7 +6,7 @@
 //= require_tree ./channels
 
 (function() {
-  this.App || (this.App = {});
+  this.Teams || (this.Teams = {});
 
   App.cable = ActionCable.createConsumer();
 
